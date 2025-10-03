@@ -1,0 +1,41 @@
+#Network Security proj  
+1) first  we add the git setup ,requirement.txt , and then setup.py  
+
+2) we define logging and exception handling code  
+
+project : - 
+
+1) data ingestion pre step : we are taking from mongodb  
+    Q .how initial  data is coming to the mongodb database --? ETL Pipeline 
+
+    ETL-> extract ,transform, load this work is done by data engg 
+
+    we extract the data from various source ---> API , s3 bucket , Paid api , variuous source 
+    we transform it ---> , clean it , preprocess it , in json form 
+    we load it --> we load it various sorces like mongodb , aws , mysql , azure ...  
+
+
+
+# python -m pip install "pymongo[srv]==3.6" 
+
+
+# mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+# mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
+
+## 
+Username:jayraj2498  ,,, Password:jayraj2498
+##
+
+from pymongo.mongo_client import MongoClient
+
+uri = "mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# Create a new client and connect to the server
+client = MongoClient(uri)
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
