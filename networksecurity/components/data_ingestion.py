@@ -5,7 +5,7 @@ from networksecurity.logging.logger import logging
 ## configuration of the Data Ingestion Config
 
 from networksecurity.entity.config_entity import DataIngestionConfig
-from networksecurity.entity.artifact_entity import DataIngestionArtifact
+from networksecurity.entity.artifact_entity import DataIngestionArtifact  # we are importing this to return the artifact
 import os
 import sys
 import numpy as np
@@ -28,11 +28,11 @@ class DataIngestion:
         
     def export_collection_as_dataframe(self):
         """
-        Read data from mongodb
+        Here we Read data from mongodb
         """
         try:
-            database_name=self.data_ingestion_config.database_name
-            collection_name=self.data_ingestion_config.collection_name
+            database_name=self.data_ingestion_config.database_name     # HERE we get db name 
+            collection_name=self.data_ingestion_config.collection_name   # it is collection name of mngdb 
             self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
             collection=self.mongo_client[database_name][collection_name]
 
@@ -45,7 +45,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException
         
-    def export_data_into_feature_store(self,dataframe: pd.DataFrame):
+    def export_data_into_feature_store(self,dataframe: pd.DataFrame): # here we are storing the mongodb data to local dir and sore it in featue store 
         try:
             feature_store_file_path=self.data_ingestion_config.feature_store_file_path
             #creating folder
@@ -57,7 +57,7 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def split_data_as_train_test(self,dataframe: pd.DataFrame):
+    def split_data_as_train_test(self,dataframe: pd.DataFrame):  # now we split the data into tain/test and split it and save into local 
         try:
             train_set, test_set = train_test_split(
                 dataframe, test_size=self.data_ingestion_config.train_test_split_ratio
@@ -90,8 +90,8 @@ class DataIngestion:
         
     def initiate_data_ingestion(self):
         try:
-            dataframe=self.export_collection_as_dataframe()
-            dataframe=self.export_data_into_feature_store(dataframe)
+            dataframe=self.export_collection_as_dataframe()  # collecting data from mngdb 
+            dataframe=self.export_data_into_feature_store(dataframe) # saving it into local 
             self.split_data_as_train_test(dataframe)
             dataingestionartifact=DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path,
                                                         test_file_path=self.data_ingestion_config.testing_file_path)

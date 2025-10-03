@@ -16,26 +16,24 @@ project : -
 
 
 
-# python -m pip install "pymongo[srv]==3.6" 
-
-
-# mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+# python -m pip install "pymongo[srv]==3.6"
 # mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 
 
-## 
-Username:jayraj2498  ,,, Password:jayraj2498
-##
+we insert our data to mongodb 
 
-from pymongo.mongo_client import MongoClient
 
-uri = "mongodb+srv://jayraj2498:<db_password>@cluster0.a78lv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-# Create a new client and connect to the server
-client = MongoClient(uri)
+A) data ingestion : 
+ in data ingesion their are 3 main component  data ingestion config ,  data ingestion component ,  data ingestion artifact 
 
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
+we go networksecurity 
+    
+    constant -> training_pipiline -> init.py  we write all constant variable here 
+    entity -> config_entity.py : we updat the data ingestion config 
+    entity -> artifact_entity -> the output of data ingestion we are return it inside local dir
+    component-> data_ingestion.py 
+
+    the output of the data ingestion component it train-test   
+
+    create main.py 
+    
