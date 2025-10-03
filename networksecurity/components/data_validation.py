@@ -9,8 +9,8 @@ import os,sys
 from networksecurity.utils.main_utils.utils import read_yaml_file,write_yaml_file
 
 class DataValidation:
-    def __init__(self,data_ingestion_artifact:DataIngestionArtifact,
-                 data_validation_config:DataValidationConfig):
+    def __init__(self,data_ingestion_artifact:DataIngestionArtifact, # input is data_ingestion artifact 
+                 data_validation_config:DataValidationConfig):      # input is data_validation config
         
         try:
             self.data_ingestion_artifact=data_ingestion_artifact
@@ -26,6 +26,7 @@ class DataValidation:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
+        
     def validate_number_of_columns(self,dataframe:pd.DataFrame)->bool:
         try:
             number_of_columns=len(self._schema_config)
@@ -37,7 +38,8 @@ class DataValidation:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def detect_dataset_drift(self,base_df,current_df,threshold=0.05)->bool:
+        
+    def detect_dataset_drift(self,base_df,current_df,threshold=0.05)->bool:   # data drift fucntion 
         try:
             status=True
             report={}
@@ -64,6 +66,7 @@ class DataValidation:
 
         except Exception as e:
             raise NetworkSecurityException(e,sys)
+        
         
     
     def initiate_data_validation(self)->DataValidationArtifact:
@@ -107,6 +110,7 @@ class DataValidation:
                 drift_report_file_path=self.data_validation_config.drift_report_file_path,
             )
             return data_validation_artifact
+        
         except Exception as e:
             raise NetworkSecurityException(e,sys)
 

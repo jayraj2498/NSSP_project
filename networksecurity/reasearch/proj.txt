@@ -21,7 +21,8 @@ project : -
 
 we insert our data to mongodb 
 
-
+Inside utils.py we write all imp generic code def for reutillization purpose 
+utils-> main_utils-> utils.py 
 
 A) data ingestion : 
  in data ingesion their are 3 main component  data ingestion config ,  data ingestion component ,  data ingestion artifact 
@@ -37,3 +38,14 @@ we go networksecurity
 
     create main.py 
     
+
+B) A) data ingestion : 
+ wer get the data from from mongodb we make sure that our schema(features)  should not have to change 
+ we need to check if data follow normal dis but after some times if our data not able to follow normal dis then this called data drift so we shold create data drift report 
+
+here data ingestion artifact is given as input here 
+
+
+    constant -> training_pipiline -> init.py  we write all constant variable here 
+    data_schema-> make schema.yaml  for data drift 
+    component-> data_validation.py
