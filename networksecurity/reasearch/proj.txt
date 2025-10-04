@@ -73,4 +73,14 @@ D) Model traning :
     we make : E:\Ds_p1\ncp\networksecurity\utils\ml_utils\model
 
     code for mlflow and dagshub for exp tracking 
-    repo_owner='jayraj2498', repo_name='NSSP_project'
+    repo_owner='jayraj2498', repo_name='NSSP_project' 
+
+    at last we save our model and preprocessor.pkl file inside final model folder 
+
+
+
+#Now we have done all component steps 
+now we make pipeline folder and crete training_pipline.py file and batch_prediction.py  
+
+
+#Now we ceate our frontend inside app.py 
