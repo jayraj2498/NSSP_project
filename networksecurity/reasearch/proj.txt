@@ -92,4 +92,7 @@ using function   def sync_artifact_dir_to_s3(self):
 
 inside training pipeline code 
 
-also see cloud foler code 
+also see cloud foler code  
+
+
+# now we make docker image 
