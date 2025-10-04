@@ -83,4 +83,13 @@ D) Model traning :
 now we make pipeline folder and crete training_pipline.py file and batch_prediction.py  
 
 
-#Now we ceate our frontend inside app.py 
+#Now we ceate our frontend inside app.py using fastapi 
+
+# now we have model we will store it some cloud platform like AWS , Azure 
+we have final_model folder we will sync it it with cloud 
+using function   def sync_artifact_dir_to_s3(self): 
+                def sync_saved_model_dir_to_s3(self): 
+
+inside training pipeline code 
+
+also see cloud foler code 
