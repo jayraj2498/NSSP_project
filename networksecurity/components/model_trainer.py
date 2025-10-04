@@ -27,11 +27,11 @@ import mlflow
 from urllib.parse import urlparse
 
 import dagshub
-#dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
+dagshub.init(repo_owner='jayraj2498', repo_name='NSSP_project', mlflow=True)
 
-# os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/krishnaik06/networksecurity.mlflow"
-# os.environ["MLFLOW_TRACKING_USERNAME"]="krishnaik06"
-# os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
+os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/jayraj2498/NSSP_project.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"]="jayraj2498"
+os.environ["MLFLOW_TRACKING_PASSWORD"]="777e2be0b0c43fcc2efbc898716cbaebe35c912b"
 
 
 
@@ -47,7 +47,7 @@ class ModelTrainer:
         
      # we track all three metric with mlflow   
     def track_mlflow(self,best_model,classificationmetric):
-        # mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
+        mlflow.set_registry_uri("https://dagshub.com/jayraj2498/NSSP_project.mlflow")
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             f1_score=classificationmetric.f1_score
@@ -142,7 +142,7 @@ class ModelTrainer:
         Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
         #model pusher
-        save_object("final_model/model.pkl",best_model)
+        save_object("final_model/model.pkl",best_model)  # we are saving the the best model 
         
 
         ## Model Trainer Artifact

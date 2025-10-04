@@ -71,3 +71,6 @@ D) Model traning :
     whatever model we get best score we save it as our best model 
     we make : E:\Ds_p1\ncp\networksecurity\utils\ml_utils\metric
     we make : E:\Ds_p1\ncp\networksecurity\utils\ml_utils\model
+
+    code for mlflow and dagshub for exp tracking 
+    repo_owner='jayraj2498', repo_name='NSSP_project'
