@@ -39,7 +39,7 @@ we go networksecurity
     create main.py 
     
 
-B) A) data ingestion : 
+B)  data Validaiton : 
  wer get the data from from mongodb we make sure that our schema(features)  should not have to change 
  we need to check if data follow normal dis but after some times if our data not able to follow normal dis then this called data drift so we shold create data drift report 
 
@@ -48,4 +48,15 @@ here data ingestion artifact is given as input here
 
     constant -> training_pipiline -> init.py  we write all constant variable here 
     data_schema-> make schema.yaml  for data drift 
-    component-> data_validation.py
+    component-> data_validation.py 
+
+
+C)  data Transformation : 
+    All infrmation coming from data valiation artifact is the input for data transfomation 
+    once we we read tain , test data then we move ahed for data transformation step 
+    inside our data their is some nan val we try to replace it also 
+    we use amotetomek liabrary for balancing the data if their is imbalance then we use it  
+
+    update config_entity & artifact entity 
+    update constant var inside training_pipeline conatnt 
+    component -> make data_transformation.py update code 

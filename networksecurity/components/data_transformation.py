@@ -1,3 +1,4 @@
+import numpy as np
 import sys
 import os
 import numpy as np
@@ -34,7 +35,7 @@ class DataTransformation:
         except Exception as e:
             raise NetworkSecurityException(e, sys)
         
-    def get_data_transformer_object(cls)->Pipeline:
+    def get_data_transformer_object(cls)->Pipeline:  # here we are defineing pipeline 
         """
         It initialises a KNNImputer object with the parameters specified in the training_pipeline.py file
         and returns a Pipeline object with the KNNImputer object as the first step.
@@ -69,7 +70,7 @@ class DataTransformation:
             ## training dataframe
             input_feature_train_df=train_df.drop(columns=[TARGET_COLUMN],axis=1)
             target_feature_train_df = train_df[TARGET_COLUMN]
-            target_feature_train_df = target_feature_train_df.replace(-1, 0)
+            target_feature_train_df = target_feature_train_df.replace(-1, 0)  # here we replace our target -1 to 0 for binary classification
 
             #testing dataframe
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
