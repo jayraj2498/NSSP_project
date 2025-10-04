@@ -52,6 +52,7 @@ here data ingestion artifact is given as input here
 
 
 C)  data Transformation : 
+    we do features enginering here :replace nam val , herer we gonna create pickle file so it can be use anywhere 
     All infrmation coming from data valiation artifact is the input for data transfomation 
     once we we read tain , test data then we move ahed for data transformation step 
     inside our data their is some nan val we try to replace it also 
@@ -60,3 +61,13 @@ C)  data Transformation :
     update config_entity & artifact entity 
     update constant var inside training_pipeline conatnt 
     component -> make data_transformation.py update code 
+
+
+D) Model traning :
+    we have done data_transformation artifact we will providde input to it 
+    we first create model trainer config it will have details after training the model where we should save it in which folder 
+    the op of it is model trainer artifact
+    here we create the model.pkl file 
+    whatever model we get best score we save it as our best model 
+    we make : E:\Ds_p1\ncp\networksecurity\utils\ml_utils\metric
+    we make : E:\Ds_p1\ncp\networksecurity\utils\ml_utils\model

@@ -1,0 +1,10 @@
+artifact_location: file:///E:/Ds_p1/ncp/mlruns/0/models/m-fb3b74d315a545fda5754bd32875e5dc/artifacts
+creation_timestamp: 1759580994849
+experiment_id: '0'
+last_updated_timestamp: 1759581001738
+model_id: m-fb3b74d315a545fda5754bd32875e5dc
+model_type: null
+name: model
+source_run_id: 5044619c8343425b982cb48cf84eca6f
+status: 2
+status_message: null

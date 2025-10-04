@@ -1,0 +1,14 @@
+artifact_uri: file:///E:/Ds_p1/ncp/mlruns/0/c0ebbb197e094495bb9e33cc766b07ef/artifacts
+end_time: 1759580994615
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c0ebbb197e094495bb9e33cc766b07ef
+run_name: adaptable-rat-251
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759580969282
+status: 3
+tags: []
+user_id: Jayraj

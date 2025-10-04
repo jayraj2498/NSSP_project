@@ -1,12 +1,12 @@
+
 import os
 import sys
-
+import numpy as np 
 from networksecurity.exception.exception import NetworkSecurityException 
 from networksecurity.logging.logger import logging
 
 from networksecurity.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact
 from networksecurity.entity.config_entity import ModelTrainerConfig
-
 
 
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
@@ -29,9 +29,9 @@ from urllib.parse import urlparse
 import dagshub
 #dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
 
-os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/krishnaik06/networksecurity.mlflow"
-os.environ["MLFLOW_TRACKING_USERNAME"]="krishnaik06"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
+# os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/krishnaik06/networksecurity.mlflow"
+# os.environ["MLFLOW_TRACKING_USERNAME"]="krishnaik06"
+# os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
 
 
 
@@ -45,8 +45,9 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
+     # we track all three metric with mlflow   
     def track_mlflow(self,best_model,classificationmetric):
-        mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
+        # mlflow.set_registry_uri("https://dagshub.com/krishnaik06/networksecurity.mlflow")
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             f1_score=classificationmetric.f1_score
@@ -127,6 +128,7 @@ class ModelTrainer:
         self.track_mlflow(best_model,classification_train_metric)
 
 
+
         y_test_pred=best_model.predict(x_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
@@ -153,11 +155,6 @@ class ModelTrainer:
 
 
         
-
-
-       
-    
-    
         
     def initiate_model_trainer(self)->ModelTrainerArtifact:
         try:
